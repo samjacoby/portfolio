@@ -1,0 +1,77 @@
+{% extends "skeleton/_root.html" %}
+
+{% block all %}
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+        <title>
+            {% block title %}
+                {{ page.title|safe }} / {{site.name}}
+            {% endblock %}
+        </title>
+
+        {% block css %}
+
+        <link rel="stylesheet" href="{{site.url}}/media/css/aal.css" type="text/css" media="screen" charset="utf-8">
+        <link rel="stylesheet" href="{{site.url}}/media/css/portfolio.css" type="text/css" media="screen" charset="utf-8">
+
+        {% block extra_css %}
+        {% endblock %}
+
+        {% endblock %}
+
+        {% block js %}
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+        <script src="{{site.url}}/media/js/portfolio.js"></script>
+<!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+        {% block extra_js %}
+        {% endblock %}
+
+        {% endblock %}
+
+    </head>
+    {% filter typogrify %}
+    <body>
+        <div class="wrap">
+
+            <div class="top group">
+                <header>
+                <h2><a href="{{ site.url }}">Samuel Jacoby</a></h2>
+                </header>
+
+                 <nav>
+                 <h2>
+                    <a href="{{ site.url }}/printing/">Printing</a>,&thinsp;<a href="{{ site.url }}/building/">Building</a>&thinsp;&&thinsp;<a href="{{ site.url }}/computers/">Computers</a>
+                </h2>
+                </nav>
+            </div>
+
+            <div class="content">
+            {% with page.node.ancestors|last as parent_node %}                   
+                {% with parent_node.url as parent_url %}                         
+                    {% block content %}{% endblock %}                            
+                {% endwith %}                                                    
+            {% endwith %}          
+            </div>  
+
+            <footer>
+            <h4>84 prescott Street, Cambridge, Massachusetts 02138</h4>
+            <h4><a href="mailto:sam@shackmanpress.com">sam@shackmanpress.com</a></h4>
+            </footer>
+
+        </div>
+    </body>
+    {% endfilter %}
+</html>
+
+{% endblock %}

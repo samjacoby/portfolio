@@ -1,0 +1,28 @@
+{% extends "skeleton/_body.html" %}
+
+{% block content_body %}
+<div id="post-content">
+    {% filter typogrify %}
+
+    {% markdown %}
+
+    {% block article %}
+    {% endblock %}
+        
+    {% endmarkdown %}
+
+    {% endfilter %}
+</div>
+
+{% endblock %}
+
+{% block content_header %}
+
+<div id="content-header">
+    {% if page.author %} 
+     <h3>{{ page.author }}</h3>
+    {% endif %}
+    <h2>{{ page.title }}</h2>
+</div>
+
+{% endblock %}
