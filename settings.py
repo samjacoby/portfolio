@@ -1,4 +1,8 @@
 import os, sys
+import logging
+import logging.handlers
+
+DEBUG = True
 
 ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
 sys.path = [ROOT_PATH] + sys.path
@@ -13,11 +17,17 @@ TMP_DIR = os.path.join(ROOT_PATH, 'deploy_tmp')
 BACKUPS_DIR = os.path.join(ROOT_PATH, 'backups')
 BACKUP = False
 
+LOG_DIR = os.path.join(ROOT_PATH, 'log')
+LOG_NAME = 'portfolio.log'
+
 SITE_ROOT = "/"
 #SITE_ROOT = "/portfolio/"
 SITE_WWW_URL = "http://shackmanpress.com/portfolio/"
 SITE_NAME = "Sam Jacoby"
 SITE_AUTHOR = "Sam Jacoby"
+
+# Unicode
+FILE_CHARSET = 'utf-8'
 
 #Url Configuration
 GENERATE_ABSOLUTE_FS_URLS = False
@@ -66,8 +76,8 @@ MEDIA_PROCESSORS = {
                 'hydeengine.media_processors.YUICompressor',)
     }, 
     'images/':{
-        '.jpg':('hydeengine.media_processors.ImageResize',),
-        '.png':('hydeengine.media_processors.ImageResize',)
+        '.jpg':('hydeengine.media_processors.Thumbnail',),
+        '.png':('hydeengine.media_processors.Thumbnail',)
         }
 }
 
@@ -115,7 +125,7 @@ import yuicompressor
 YUI_COMPRESSOR = os.path.join(os.path.dirname(yuicompressor.__file__), 'yuicompressor.jar')
 
 # Path for LESSCSS
-LESS_CSS_PATH = '/usr/bin/lessc'
+LESS_CSS_PATH = '/opt/local/bin/lessc'
 
 # path for Closure Compiler, or None if you don't
 # want to compress JS/CSS. Project homepage:
@@ -129,18 +139,44 @@ CLOSURE_COMPRILER = None
 HSS_PATH = None # if you don't want to use HSS
 
 
-IMAGE_MAX_WIDTH = 540                                                     
-IMAGE_MAX_HEIGHT = 1000                                                           
+THUMBNAIL_MAX_WIDTH = 540                                                     
+THUMBNAIL_MAX_HEIGHT = 1000                                                           
 IMAGE_JPEG_QUALITY = 80
 
-#THUMBNAIL_FILENAME_POSTFIX = '-thumb'   
+THUMBNAIL_FILENAME_POSTFIX = ''   
 
 #Django settings
 
 TEMPLATE_DIRS = (LAYOUT_DIR, CONTENT_DIR, TMP_DIR, MEDIA_DIR)
+
+# Access time, filename/function#line-number message
+log_formatter = logging.Formatter("[%(asctime)s %(filename)s/%(funcName)s#%(lineno)d] %(message)s")
 
 INSTALLED_APPS = (
     'hydeengine',
     'django.contrib.webdesign',
 #    'extensions'
 )
+
+# Add log setup after local imports
+LOG_FILE = os.path.join(LOG_DIR, LOG_NAME)
+try:
+    if not os.path.exists(os.path.dirname(LOG_FILE)):
+        os.mkdir(os.path.dirname(LOG_FILE))
+    try:
+        handler = logging.handlers.TimedRotatingFileHandler(filename=LOG_FILE, when='midnight')
+        pass
+    except IOError:
+        # This is a permission error that occurs when running jobs as the ofps user via Fab
+        # Instead of a unique file just send to stderr
+        import sys
+        handler = logging.StreamHandler(sys.stderr)
+    handler.setFormatter(log_formatter)
+    log = logging.getLogger('')
+    if DEBUG:
+        log.setLevel(logging.DEBUG)
+    else:
+        log.setLevel(logging.WARN)
+    log.addHandler(handler)
+except OSError:
+    pass
