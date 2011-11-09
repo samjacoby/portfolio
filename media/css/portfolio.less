@@ -1,4 +1,4 @@
-@font-special: 'CantarellRegular', Arial, sans-serif;                                                              
+@font-special: 'CantarellRegular', sans-serif;                                                              
 @color-body: #222;
 @color-link: #ff0011;
 @width-body: 540px;
@@ -7,9 +7,9 @@
 @letter-spacing-measure: -0.02em;
 
 @font-face {
-//	font-family: 'CantarellRegular';
-//	src: url('Cantarell-Regular-webfont.eot');
-//	src: local('☺'), url('/portfolio/media/fonts/Cantarell-Regular-webfont.woff') format('woff'), url('/portfolio/media/fonts/Cantarell-Regular-webfont.ttf') format('truetype'), url('/portfolio/media/fonts/Cantarell-Regular-webfont.svg#webfontaI1yI6ue') format('svg');
+	font-family: 'CantarellRegular';
+	src: url('Cantarell-Regular-webfont.eot');
+	src: local('☺'), url('/portfolio/media/fonts/Cantarell-Regular-webfont.woff') format('woff'), url('/portfolio/media/fonts/Cantarell-Regular-webfont.ttf') format('truetype'), url('/portfolio/media/fonts/Cantarell-Regular-webfont.svg#webfontaI1yI6ue') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -23,7 +23,6 @@ html {
     border-top: @wire-border;
     border-left: @wire-border;
     border-right: @wire-border;
-
 }
 
 .padding-side (@padding: @standard-spacing) {
@@ -84,11 +83,12 @@ body {
             
                 nav {
                     float: left;
-                    width: @width-body;
+                    width: @width-body + 20px;
                     text-transform: uppercase;
                     color: @color-link;
                     border-top: @wire-border;
-                    .padding-side;
+                    padding-left:20px;
+                    padding-right:-20px
                     .separator {
                         padding-left:4px;
                         padding-right:4px;

@@ -20,8 +20,8 @@ BACKUP = False
 LOG_DIR = os.path.join(ROOT_PATH, 'log')
 LOG_NAME = 'portfolio.log'
 
-SITE_ROOT = "/"
-#SITE_ROOT = "/portfolio/"
+#SITE_ROOT = "/"
+SITE_ROOT = "/portfolio/"
 SITE_WWW_URL = "http://shackmanpress.com/portfolio/"
 SITE_NAME = "Sam Jacoby"
 SITE_AUTHOR = "Sam Jacoby"
@@ -122,7 +122,8 @@ GROWL = None
 #YUI_COMPRESSOR = "./lib/yuicompressor-2.4.2.jar"
 #YUI_COMPRESSOR = None                   
 import yuicompressor
-YUI_COMPRESSOR = os.path.join(os.path.dirname(yuicompressor.__file__), 'yuicompressor.jar')
+#YUI_COMPRESSOR = os.path.join(os.path.dirname(yuicompressor.__file__), 'yuicompressor.jar')
+YUI_COMPRESSOR = None 
 
 # Path for LESSCSS
 LESS_CSS_PATH = '/opt/local/bin/lessc'
