@@ -7,12 +7,9 @@
                 <li>
                 <span class="marked_link"><a href="{{ site.url }}/about/">About</a></span>
                 </li>
-                <li>
-                <span class="marked_link"><a href="{{ site.url }}/media/pdf/sjacoby-cv.pdf">CV</a></span>
-                </li>
                 {% recent_posts projects 10 page.node%}
                     {%for p in projects %}
-                    <li class="{% for c in p.categories %}{{ c }}{% endfor %}{%if forloop.last or forloop.counter == 4 %} last{% endif %}">
+                        <li class="{% for c in p.categories %}{{ c }}{% endfor %}{%if forloop.last or forloop.counter == 4 %} last{% endif %}">
                     <div class="title"><a href='{{ p.url }}'>{{ p.title }}</a></div>
                 </li>                           
                     {% if forloop.counter == 4 %}
