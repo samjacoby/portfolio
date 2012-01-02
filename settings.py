@@ -181,3 +181,9 @@ try:
     log.addHandler(handler)
 except OSError:
     pass
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
+
