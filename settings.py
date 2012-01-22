@@ -63,6 +63,8 @@ APPEND_SLASH = True
 
 # Extensions do not support wildcards.
 
+import processors
+
 MEDIA_PROCESSORS = {
     '*':{
         '.ccss':('hydeengine.media_processors.TemplateProcessor',
@@ -76,8 +78,8 @@ MEDIA_PROCESSORS = {
                 'hydeengine.media_processors.YUICompressor',)
     }, 
     'images/':{
-        '.jpg':('hydeengine.media_processors.Thumbnail',),
-        '.png':('hydeengine.media_processors.Thumbnail',)
+        '.jpg':('hydeengine.media_processors.ImageResize',),
+        '.png':('hydeengine.media_processors.ImageResize',)
         }
 }
 
@@ -140,11 +142,11 @@ CLOSURE_COMPRILER = None
 HSS_PATH = None # if you don't want to use HSS
 
 
-THUMBNAIL_MAX_WIDTH = 540                                                     
-THUMBNAIL_MAX_HEIGHT = 1000                                                           
+RESIZE_MAX_WIDTH = 540                                                     
+RESIZE_MAX_HEIGHT = 1000                                                           
 IMAGE_JPEG_QUALITY = 80
 
-THUMBNAIL_FILENAME_POSTFIX = ''   
+RESIZE_FILENAME_POSTFIX = ''   
 
 #Django settings
 

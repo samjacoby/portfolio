@@ -5,17 +5,17 @@
         <div class="column" id="first">
             <ol class="group">
                 <li>
-                <span class="marked_link"><a href="{{ site.url }}/about/">About</a></span>
+                <span class="marked_link"><a href="{{ site.url }}/about/">About</a></span
                 </li>
-                {% recent_posts projects 10 page.node%}
-                    {%for p in projects %}
+                {% recent_posts projects 10 page.node %}
+                    {% for p in projects %}
                         <li class="{% for c in p.categories %}{{ c }}{% endfor %}{%if forloop.last or forloop.counter == 4 %} last{% endif %}">
                     <div class="title"><a href='{{ p.url }}'>{{ p.title }}</a></div>
                 </li>                           
                     {% if forloop.counter == 4 %}
             </ol>            
-                </div>
-                <div class="column">
+        </div>
+        <div class="column">
             <ol class="group">        
                     {% endif %}
                 {%endfor%}
