@@ -23,8 +23,8 @@ LOG_NAME = 'portfolio.log'
 #SITE_ROOT = "/"
 SITE_ROOT = "/portfolio/"
 SITE_WWW_URL = "http://shackmanpress.com/portfolio/"
-SITE_NAME = "Sam Jacoby"
-SITE_AUTHOR = "Sam Jacoby"
+SITE_NAME = "Samuel Jacoby"
+SITE_AUTHOR = "Samuel Jacoby"
 
 # Unicode
 FILE_CHARSET = 'utf-8'
@@ -63,6 +63,7 @@ APPEND_SLASH = True
 
 # Extensions do not support wildcards.
 
+# Import local processors
 import processors
 
 MEDIA_PROCESSORS = {
@@ -77,18 +78,24 @@ MEDIA_PROCESSORS = {
                 'hydeengine.media_processors.TemplateProcessor',
                 'hydeengine.media_processors.YUICompressor',)
     }, 
-    'images/':{
-        '.jpg':('hydeengine.media_processors.ImageResize',),
-        '.png':('hydeengine.media_processors.ImageResize',)
-        }
+   # 'images/':{
+   #     '.jpg':('hydeengine.media_processors.ImageResize',),
+   #     '.png':('hydeengine.media_processors.ImageResize',)
+   #     }
 }
 
 CONTENT_PROCESSORS = {
-    'prerendered/': {
+    'images/': {
         '*.*' : 
             ('hydeengine.content_processors.PassthroughProcessor',)
             }
 }
+
+SITE_PRE_PROCESSORS = {
+    'blog': {
+        'hydeengine.site_pre_processors.CategoriesManager': {},
+    },
+}    
 
 SITE_POST_PROCESSORS = {
     # 'media/js': {
@@ -118,11 +125,6 @@ FILTER = {
 #
 GROWL = None
 
-# path for YUICompressor, or None if you don't
-# want to compress JS/CSS. Project homepage:
-# http://developer.yahoo.com/yui/compressor/
-#YUI_COMPRESSOR = "./lib/yuicompressor-2.4.2.jar"
-#YUI_COMPRESSOR = None                   
 import yuicompressor
 #YUI_COMPRESSOR = os.path.join(os.path.dirname(yuicompressor.__file__), 'yuicompressor.jar')
 YUI_COMPRESSOR = None 
