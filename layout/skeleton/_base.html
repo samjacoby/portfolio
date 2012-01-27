@@ -46,15 +46,22 @@
 
             <div class="top group">
                 <header>
-                <h2><a href="{{ site.url }}">Samuel Jacoby</a></h2>
+                    <h2><a href="/">{{ site.name }} </a></h2>
                 </header>
+                {% block header_nav %}
+                {% endblock %}
 
                  <nav>
-                 <h2>
-                    <a href="{{ site.url }}/printing/">Printing</a>,&thinsp;<a href="{{ site.url }}/building/">Building</a>&thinsp;&&thinsp;<a href="{{ site.url }}/computers/">Computers</a>
-                </h2>
-                </nav>
-            </div>
+{% markdown %}
+[1]: /printing/
+[2]: /building/
+[3]: /computers/
+## [Printing][1], [Building][2], [Computers][3] and so [forth][3]
+
+{% endmarkdown %}
+        </nav>
+
+        </div>
 
             <div class="content">
             {% with page.node.ancestors|last as parent_node %}                   

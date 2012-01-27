@@ -1,9 +1,10 @@
 @font-special: 'CantarellRegular', sans-serif;                                                              
 @color-body: #222;
 @color-link: #ff0011;
+@color-hover: #222;
 @width-body: 540px;
 @standard-spacing: 20px;
-@wire-border: 2px solid #CCC;
+@wire-border: 1px solid #CCC;
 @letter-spacing-measure: -0.02em;
 
 
@@ -15,7 +16,8 @@
 	font-style: normal;
 }
 
-html {
+html, body {
+    height: 100%;
     overflow-y: scroll;
 }
 
@@ -38,6 +40,7 @@ html {
 
 body {
     text-rendering: optimizeLegibility;
+    line-height: 1.4; 
     color: @color-body;
     position: relative;
 
@@ -53,6 +56,20 @@ body {
         font-weight: normal;
         text-transform: uppercase;
         letter-spacing: @letter-spacing-measure;
+    }
+
+    .top {
+        h1 {
+        }
+        h3 {
+            text-transform: none; 
+            font-family: georgia;
+            color: black;
+            letter-spacing: @letter-spacing-measure + .02;
+        }
+        p {
+            text-transform: none; 
+        }
     }
 
     h1 { font-size: 45px; line-height: 50px; margin: 25px 0; }
@@ -82,7 +99,7 @@ body {
                     .padding-side;
                 }
             
-                nav {
+                nav, .nav-block {
                     float: left;
                     width: @width-body + 20;
                     text-transform: uppercase;
@@ -94,10 +111,14 @@ body {
                         padding-right:4px;
                     }
                 }
+                div {
+                    .nav-block;
+                    color: black;
+                }
                 a {
                     color: @color-link;
-                    :hover { 
-                        color: @color-body; 
+                    &:hover { 
+                        color: @color-hover; 
                         text-decoration: none;
                     }
         
@@ -143,7 +164,7 @@ body {
             .marked_link {
                 a {
                     color: #336666;
-                    :hover {
+                    &:hover {
                         color: @color-body;
                         text-decoration: none;
                     }
@@ -153,6 +174,7 @@ body {
         
         #first {
             border-right: @wire-border;
+            height: 500px;
         }
 
         #post {
@@ -167,7 +189,7 @@ body {
         footer {
             a {
                 color: @color-body;
-                :hover {
+                &:hover {
                     color: @color-link;
                     text-decoration: none;
                 }
