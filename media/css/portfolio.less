@@ -1,12 +1,12 @@
-@font-special: 'CantarellRegular', sans-serif;                                                              
-@color-body: #222;
-@color-link: #ff0011;
+// Variables
+@font-special: 'CantarellRegular', sans-serif;              
+@color-body: #222; // body text color
+@color-link: #ff0011; // links color
 @color-hover: #222;
 @width-body: 540px;
 @standard-spacing: 20px;
 @wire-border: 1px solid #CCC;
 @letter-spacing-measure: -0.02em;
-
 
 @font-face {
 	font-family: 'CantarellRegular';
@@ -15,29 +15,23 @@
 	font-weight: normal;
 	font-style: normal;
 }
-
-html, body {
-    height: 100%;
-    overflow-y: scroll;
+.padding-side (@padding: @standard-spacing) {
+    padding-left: @padding;
+    padding-right: @padding;
 }
-
-
+.top-bottom-padding (@padding: @standard-spacing) {
+    padding-top: @padding;
+    padding-bottom: @padding;
+}
 .wire { 
     border-top: @wire-border;
     border-left: @wire-border;
     border-right: @wire-border;
 }
-
-.padding-side (@padding: @standard-spacing) {
-    padding-left: @padding;
-    padding-right: @padding;
+html, body {
+    height: 100%;
+    overflow-y: scroll;
 }
-
-.top-bottom-padding (@padding: @standard-spacing) {
-    padding-top: @padding;
-    padding-bottom: @padding;
-}
-
 body {
     text-rendering: optimizeLegibility;
     line-height: 1.4; 
@@ -47,7 +41,6 @@ body {
     a {
         text-decoration: none;       
         color: @color-link;
-
         :hover { text-decoration:underline; }
     }
     
@@ -56,22 +49,8 @@ body {
         font-weight: normal;
         text-transform: uppercase;
         letter-spacing: @letter-spacing-measure;
+        .padding-side;
     }
-
-    .top {
-        h1 {
-        }
-        h3 {
-            text-transform: none; 
-            font-family: georgia;
-            color: black;
-            letter-spacing: @letter-spacing-measure + .02;
-        }
-        p {
-            text-transform: none; 
-        }
-    }
-
     h1 { font-size: 45px; line-height: 50px; margin: 25px 0; }
     h2 { font-size: 30px; line-height: 50px; margin: 25px 0; }
     h3 { font-size: 23px; line-height: 25px; margin: 25px 0; }
@@ -81,10 +60,8 @@ body {
 .wrap {
         width: @width-body + 2 * @standard-spacing;
         margin: 20px auto 0;
-
         font-family: @font-special;
         font-weight: normal;
-        
         .top {
                 
                 font-size: 16px;
@@ -94,18 +71,18 @@ body {
   
                 header {
                     float: left;
-                    width: @width-body;
+                    width: @width-body + 2 * @standard-spacing;
                     text-transform: uppercase;
-                    .padding-side;
                 }
-            
+                .section {
+                    border-top: @wire-border;
+                }
                 nav, .nav-block {
                     float: left;
-                    width: @width-body + 20;
+                    width: @width-body + 2 * @standard-spacing;
                     text-transform: uppercase;
                     color: @color-link;
                     border-top: @wire-border;
-                    padding-left: 20px;
                     .separator {
                         padding-left:4px;
                         padding-right:4px;
@@ -205,7 +182,21 @@ body {
             border-bottom: @wire-border;
         }
     }
+
+    .top {
+        h3 {
+            text-transform: none; 
+            font-family: georgia;
+            color: black;
+            letter-spacing: @letter-spacing-measure + .02;
+        }
+        p {
+            text-transform: none; 
+        }
+    }
+
 }
+
 .section-listing {
     float: left;
     width: @width-body + 2 * @standard-spacing;
@@ -248,7 +239,6 @@ body {
     margin-bottom: 25px;                                                         
     margin-right: 25px;                                                          
 }
-
 .last {
     border-bottom: none !important;
 }

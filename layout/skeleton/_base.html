@@ -8,7 +8,7 @@
 "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
-    <head>
+    <head><!--{{{-->
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
         <title>
@@ -39,20 +39,20 @@
 
         {% endblock %}
 
-    </head>
+    </head><!--}}}-->
     {% filter typogrify %}
     <body>
         <div class="wrap">
-
             <div class="top group">
                 <header>
-                    <h2><a href="/">{{ site.name }} </a></h2>
-                </header>
-                {% block header_nav %}
+                {% block splash %}
                 {% endblock %}
-
-                 <nav>
+                </header>
+                <header class="section">
+                    <h2><a href="/">{{ site.name }} </a></h2>
+		<nav>
 {% markdown %}
+
 [1]: /printing/
 [2]: /building/
 [3]: /computers/
@@ -60,6 +60,7 @@
 
 {% endmarkdown %}
         </nav>
+                </header>
 
         </div>
 
