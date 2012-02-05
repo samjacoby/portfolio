@@ -5,8 +5,11 @@
 <li>
 	<a href="{{list_page.url}}">
 	{% with list_page.name_without_extension|remove_date_prefix|unslugify as default_title %}
-						{{list_page.title|default_if_none:default_title }}
+						{{list_page.title|default_if_none:default_title|safe|typogrify }}
     {%endwith%}</a>
+    {% if list_page.summary %}
+        <p> {{ list_page.summary|safe|typogrify }} </p>
+    {% endif %}
 
 </li>
 {% endspaceless %}

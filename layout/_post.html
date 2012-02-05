@@ -1,6 +1,17 @@
 {% extends "skeleton/_body.html" %}
 
+{% block content_header %}
+
+<div id="content-header">
+    {% if page.author %} 
+     <h3>{{ page.author }}</h3>
+    {% endif %}
+    <h2>{{ page.title }}</h2>
+</div>
+{% endblock %}
+
 {% block content_body %}
+{% spaceless %}
 <div id="post-content">
     {% filter typogrify %}
 
@@ -14,15 +25,6 @@
     {% endfilter %}
 </div>
 
+{% endspaceless %}
 {% endblock %}
 
-{% block content_header %}
-
-<div id="content-header">
-    {% if page.author %} 
-     <h3>{{ page.author }}</h3>
-    {% endif %}
-    <h2>{{ page.title }}</h2>
-</div>
-
-{% endblock %}

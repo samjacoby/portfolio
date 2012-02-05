@@ -69,7 +69,7 @@
             <div class="content">
             {% with page.node.ancestors|last as parent_node %}                   
                 {% with parent_node.url as parent_url %}                         
-                    {% block content_body %}{% endblock %}                            
+                    {% block content %}{% endblock %}                            
                 {% endwith %}                                                    
             {% endwith %}          
             </div>  
