@@ -1,14 +1,18 @@
-{% extends "skeleton/_body.html"%}
+{% extends "skeleton/_base.html"%}
 
 {% block content_header %}
 {% endblock %}
 
 {% block content_body %}
 
-<div class="page-listing">
-	{% for node in page.node.walk %}
-		{% include "skeleton/_innerlisting.html" %}
-	{% endfor %}
+<div class="section-listing">
+    <div class="column" id="first">
+        <ol class="group">
+            {% for node in page.node.walk %}
+                {% include "skeleton/_innerlisting.html" %}
+            {% endfor %}
+        </ol>
+    </div>
 </div>
 
 {% endblock %}
