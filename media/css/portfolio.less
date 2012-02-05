@@ -23,16 +23,19 @@
     padding-top: @padding;
     padding-bottom: @padding;
 }
+
 .wire { 
-    border-top: @wire-border;
     border-left: @wire-border;
     border-right: @wire-border;
 }
+
 html, body {
     height: 100%;
     overflow-y: scroll;
 }
+
 body {
+
     text-rendering: optimizeLegibility;
     line-height: 1.4; 
     color: @color-body;
@@ -49,67 +52,60 @@ body {
         font-weight: normal;
         text-transform: uppercase;
         letter-spacing: @letter-spacing-measure;
-        .padding-side;
     }
+
     h1 { font-size: 45px; line-height: 50px; margin: 25px 0; }
     h2 { font-size: 30px; line-height: 50px; margin: 25px 0; }
     h3 { font-size: 23px; line-height: 25px; margin: 25px 0; }
     h4 { font-size: 18px; line-height: 25px; margin: 25px 0; }
 
-
-.wrap {
-        width: @width-body + 2 * @standard-spacing;
-        margin: 20px auto 0;
+    .wrap {
         font-family: @font-special;
         font-weight: normal;
+        margin: 20px auto 0;
+        width: @width-body + 2 * @standard-spacing;
         .top {
-                
-                font-size: 16px;
+                color: @color-link;
+                float: left;
                 line-height: 40px;
-                .wire;
+                text-transform: uppercase;
                 width: @width-body + 2 * @standard-spacing;
-  
+               .wire;
+
                 header {
                     float: left;
-                    width: @width-body + 2 * @standard-spacing;
                     text-transform: uppercase;
                 }
-                .section {
+
+                .container {
+                    .padding-side;
                     border-top: @wire-border;
+                    width: @width-body;
                 }
-                nav, .nav-block {
-                    float: left;
-                    width: @width-body + 2 * @standard-spacing;
-                    text-transform: uppercase;
-                    color: @color-link;
-                    border-top: @wire-border;
-                    .separator {
-                        padding-left:4px;
-                        padding-right:4px;
-                    }
+                .separator {
+                    padding-left:4px;
+                    padding-right:4px;
                 }
-                div {
-                    .nav-block;
-                    color: black;
-                }
-                a {
-                    color: @color-link;
+            }
+            div {
+                .nav-block;
+                color: black;
+            }
+            a {
+                    color: @color-hover; 
+                    text-decoration: none;
                     &:hover { 
-                        color: @color-hover; 
-                        text-decoration: none;
+                        color: @color-link;
                     }
         
-                }
-                h2 {
-                    color: @color-link;
-                }
+            }
         }
 
 
         .column {
-            width: (@width-body + 2 * @standard-spacing) / 2 - 1; 
             float: left;
-            
+            width: (@width-body + 2 * @standard-spacing) / 2 - 1; 
+
             a {
                 color: @color-body;
                 :hover { 
@@ -118,26 +114,22 @@ body {
                 }
     
             }
-
             .title {
                 float: left;
                 text-align: left;
                 width: 80%;
             }
-
             .index {
                 float: right;
                 width: 10%;
                 text-align: right;
             }
-
             .highlight {
                 
                 a {
                     color: @color-link;
                 }
             }
-
             .marked_link {
                 a {
                     color: #336666;
@@ -155,10 +147,10 @@ body {
         }
 
         #post {
-            border: @wire-border;
             .padding-side;
-            width: @width-body;
+            border: @wire-border;
             p {
+                width: @width-body;
             }
         }
 
@@ -182,19 +174,6 @@ body {
             border-bottom: @wire-border;
         }
     }
-
-    .top {
-        h3 {
-            text-transform: none; 
-            font-family: georgia;
-            color: black;
-            letter-spacing: @letter-spacing-measure + .02;
-        }
-        p {
-            text-transform: none; 
-        }
-    }
-
 }
 
 .section-listing {
