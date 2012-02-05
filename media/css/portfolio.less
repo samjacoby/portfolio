@@ -2,7 +2,7 @@
 @font-special: 'CantarellRegular', sans-serif;              
 @color-body: #222; // body text color
 @color-link: #ff0011; // links color
-@color-hover: #222;
+@color-hover: #ff0011;
 @width-body: 540px;
 @standard-spacing: 20px;
 @wire-border: 1px solid #CCC;
@@ -65,7 +65,7 @@ body {
         margin: 20px auto 0;
         width: @width-body + 2 * @standard-spacing;
         .top {
-                color: @color-link;
+                color: @color-body;
                 float: left;
                 line-height: 40px;
                 text-transform: uppercase;
@@ -88,10 +88,10 @@ body {
                 }
             }
             a {
-                    color: @color-hover; 
+                    color: @color-link; 
                     text-decoration: none;
                     &:hover { 
-                        color: @color-link;
+                        color: @color-hover;
                     }
         
             }
@@ -105,7 +105,7 @@ body {
             a {
                 color: @color-body;
                 :hover { 
-                    color: @color-link; 
+                    color: @color-hover; 
                     text-decoration: none;
                 }
     
@@ -139,7 +139,8 @@ body {
         
         #first {
             border-right: @wire-border;
-            height: 500px;
+            max-height: 100%;
+            height: auto !important;
         }
 
         #post {
@@ -188,21 +189,17 @@ body {
             margin: 0;
             width: @width-body / 2 - @standard-spacing;
             text-align: left;
-            text-transform: uppercase;
 
             .padding-side;
             .top-bottom-padding(20px);
-            
             border-bottom: @wire-border;
 
-            span.summary {
-
-            }
-            
-            :nth-last-child(1) {
+            &:nth-last-child(1) {
                 border-bottom: none;
             }
         }
+            
+            
     }
 }
 

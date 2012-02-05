@@ -2,13 +2,20 @@
 
 {% block all %}
 {% spaceless %}
+{% if list_page.pivot %}
+    </ol>
+</div>
+<div class="column">
+    <ol class="group">
+{% endif %}
+
 <li>
-	<a href="{{list_page.url}}">
+    <a href="{{list_page.url}}"><h3>
 	{% with list_page.name_without_extension|remove_date_prefix|unslugify as default_title %}
-						{{list_page.title|default_if_none:default_title|safe|typogrify }}
-    {%endwith%}</a>
+						{{list_page.title|default_if_none:default_title|safe }}
+                    {%endwith%}</h3></a>
     {% if list_page.summary %}
-        <p> {{ list_page.summary|safe|typogrify }} </p>
+        <p> {{ list_page.summary|safe }} </p>
     {% endif %}
 
 </li>

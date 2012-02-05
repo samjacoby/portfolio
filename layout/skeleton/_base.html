@@ -44,21 +44,21 @@
     <body>
         <div class="wrap">
             <div class="top group">
+                {% block splash %}
+                {% endblock %}
                     <div class="container">
                         <h2><a href="/">{{ site.name }} </a></h2>
                     </div>
-                {% block splash %}
-                {% endblock %}
                 <header class="section">
                 <div class="container">
                         <nav>
 {% markdown %}
-
 [1]: /printing/
 [2]: /building/
 [3]: /computers/
-## Projects {[Printing][1], [Building][2], [Computers][3]} and so [forth][3]
-
+[4]: /blog/
+[5]: /
+## [Projects][5] {[.][1][.][2][.][3]} and so [forth][4]
 {% endmarkdown %}
                         </nav>
                     </div>

@@ -13,18 +13,10 @@
 {% block content_body %}
 {% spaceless %}
 <div id="post-content">
-    {% filter typogrify %}
-
-    {% markdown %}
-    
-    {% block article %}
-    {% endblock %}
-        
-    {% endmarkdown %}
-
-    {% endfilter %}
+{%markdown%}
+{% block article %}{% endblock %}
+{%endmarkdown%}
 </div>
 
 {% endspaceless %}
 {% endblock %}
-
