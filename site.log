@@ -6587,3 +6587,7 @@ ChannelFailures: IOError("Port 8080 not free on 'localhost'",)
 [05/Feb/2012:17:59:18] ENGINE Started monitor thread '_TimeoutMonitor'.
 [05/Feb/2012:17:59:19] ENGINE Serving on localhost:8080
 [05/Feb/2012:17:59:19] ENGINE Bus STARTED
+[05/Feb/2012:18:14:52] ENGINE Bus STARTING
+[05/Feb/2012:18:14:52] ENGINE Started monitor thread '_TimeoutMonitor'.
+[05/Feb/2012:18:14:52] ENGINE Serving on localhost:8080
+[05/Feb/2012:18:14:52] ENGINE Bus STARTED
