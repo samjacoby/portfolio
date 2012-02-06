@@ -78,17 +78,17 @@ MEDIA_PROCESSORS = {
                 'hydeengine.media_processors.TemplateProcessor',
                 'hydeengine.media_processors.YUICompressor',)
     }, 
-   # 'images/':{
-   #     '.jpg':('hydeengine.media_processors.ImageResize',),
-   #     '.png':('hydeengine.media_processors.ImageResize',)
-   #     }
+    'images/':{
+        '.jpg':('hydeengine.media_processors.ImageResize',),
+        '.png':('hydeengine.media_processors.ImageResize',)
+        }
 }
 
 CONTENT_PROCESSORS = {
-    'images/': {
-        '*.*' : 
-            ('hydeengine.content_processors.PassthroughProcessor',)
-            }
+#    'images/': {
+#        '*.*' : 
+#            ('hydeengine.content_processors.PassthroughProcessor',)
+#            }
 }
 
 SITE_PRE_PROCESSORS = {

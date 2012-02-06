@@ -7,7 +7,7 @@
                 <li>
                 <span class="marked_link"><a href="{{ site.url }}/about/">About</a></span
                 </li>
-                {% recent_posts projects 10 page.node %}
+                {% recent_posts projects 15 page.node %}
                     {% for p in projects %}
                         <li class="{% for c in p.categories %}{{ c }}{% endfor %}{%if forloop.last or forloop.counter == 6 %} last{% endif %}">
                     <div class="title"><a href='{{ p.url }}'>{{ p.title }}</a></div>
